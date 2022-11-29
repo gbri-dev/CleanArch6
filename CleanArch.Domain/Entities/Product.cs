@@ -42,7 +42,7 @@ namespace CleanArch.Domain.Entities
             DomainExceptionValidation.When(stock < 0, "Invalid price value");
             DomainExceptionValidation.When(string.IsNullOrEmpty(image),
                "Invalid name. Name is required");
-            DomainExceptionValidation.When(image.Length < 250,
+            DomainExceptionValidation.When(image?.Length < 250,
                  "Invalid image name, too long, maximum 250 characters");
 
             Name = name;

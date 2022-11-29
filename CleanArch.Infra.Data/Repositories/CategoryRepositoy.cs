@@ -4,18 +4,18 @@ using CleanArch.Infra.Data.Context;
 
 namespace CleanArch.Infra.Data.Repositories
 {
-    public class ProductRepository : IProductRepository
-    { 
+    public class CategoryRepository : ICategoryRepository
+    {
         private ApplicationDbContext _context;
 
-        public ProductRepository(ApplicationDbContext context)
+        public CategoryRepository(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        public async Task<IEnumerable<Product>> GetProductsAsync()
+        public async Task<IEnumerable<Category>> GetCategories()
         {
-            return await _context.Products;
+            return await _context.Categories;
         }
     }
 }
