@@ -13,9 +13,39 @@ namespace CleanArch.Infra.Data.Repositories
             _context = context;
         }
 
-        public async Task<IEnumerable<Product>> GetProductsAsync()
+        public Task<Product> CreateAsync(Product product)
         {
-            return await _context.Products;
+            throw new NotImplementedException();
         }
+
+        public Task<Product> GetByIdAsync(int? id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Product> GetProductCategoryAsync(int? id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<Product>> GetProductsAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Product> RemoveAsync(Product product)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Product> UpdateAsync(Product product)
+        {
+            throw new NotImplementedException();
+        }
+
+        //public async Task<IEnumerable<Product>> GetProductsAsync()
+        //{
+        //    return await _context.Products;
+        //}
     }
 }
