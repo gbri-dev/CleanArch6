@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CleanArch.Application.DTOs
 {
-    class ProductDTO
+    public class ProductDTO
     {
         public int Id { get; set; }
 
@@ -37,7 +37,7 @@ namespace CleanArch.Application.DTOs
         [DisplayName("Product Image")]
         public string Image { get;  set; }
 
-        public Category category { get; set; }
+        public Category Category { get; set; }
 
         [DisplayName("Categories")]
         public int CategoryId { get; set; }
