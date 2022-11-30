@@ -2,7 +2,7 @@
 
 namespace CleanArch.Application.DTOs
 {
-     class CategoryDTO
+     public class CategoryDTO 
     {
         public int Id { get; set; }
 
