@@ -32,8 +32,9 @@ namespace CleanArch.Domain.Tests
         [Fact]
         public void CreateCategory_LongImageName_DomainExceptionLongImageName()
         {
-            Action action = () => new Product(1, "Pr", "Product Description", 9.99m,
-                99, "product image tooooooooooooooooooooooooooooooooooooooooooooooooooooo looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo gggggggggggggggggggggggggggggggggggggggggggggggggggggggggoooooooooooooooooooooooo");
+            Action action = () => new Product(1, "Product Name", "Product Description", 9.99m,
+                99, "product image tooooooooooooooooooooooooooooooooooooooooooooooooooooo loooooooooooooooooooooooooooooooooooooooooooooooooooooooo" +
+                "ooooooooooooooooooooooooooooooooooooooooooooo gggggggggggggggggggggggggggggggggggggggggggggggggggggggggoooooooooooooooooooooooo");
             action.Should()
                 .Throw<CleanArch.Domain.Validation.DomainExceptionValidation>()
                 .WithMessage("Invalid image name, too long, maximum 250 characters");
@@ -43,7 +44,7 @@ namespace CleanArch.Domain.Tests
         {
             Action action = () => new Product(1, "Product Name", "Product Description", 9.99m, 99, null);
             action.Should()
-                .NotThrow<CleanArch.Domain.Validation.DomainExceptionValidation>();
+                .Throw<CleanArch.Domain.Validation.DomainExceptionValidation>();
         }
 
         [Fact]

@@ -26,7 +26,7 @@ namespace CleanArch.Domain.Tests
             Action action = () => new Category(1, "Ca");
             action.Should()
                 .Throw<CleanArch.Domain.Validation.DomainExceptionValidation>()
-                .WithMessage("Name too short, minimum 3 characters");
+                .WithMessage("Invalid name, too short, minimum 3 characters");
         }
         [Fact]
         public void CreateCategory_MissingNameValue_DomainExceptionNameNull()
