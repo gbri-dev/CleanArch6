@@ -1,12 +1,21 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CleanArch.Application.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CleanArch.MVC.Controllers
 {
     public class CategoriesController : Controller
     {
-        public IActionResult Index()
+        private readonly ICategoryService _categoryService;
+        public CategoriesController(ICategoryService categoryService)
         {
-            return View();
+            _categoryService = categoryService;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Index()
+        {
+            var categories = await _categoryService.GetCategories();
+            return View(categories);
         }
     }
 }
