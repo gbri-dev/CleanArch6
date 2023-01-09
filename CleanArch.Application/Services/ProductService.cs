@@ -3,8 +3,6 @@ using CleanArch.Application.DTOs;
 using CleanArch.Application.Interfaces;
 using CleanArch.Application.Products.Commands;
 using CleanArch.Application.Products.Queries;
-using CleanArch.Domain.Entities;
-using CleanArch.Domain.Interfaces;
 using MediatR;
 
 namespace CleanArch.Application.Services

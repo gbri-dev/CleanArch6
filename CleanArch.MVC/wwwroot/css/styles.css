@@ -1,0 +1,18 @@
+﻿
+.ImgPro {
+    width: auto;
+    height: 450px;
+}
+
+.featured-item {
+    padding: 10px;
+    margin: 5px;
+    background-color: rgba(88, 205, 255, 0.5);
+    border-radius: 0 12px 0 0;
+}
+
+.featured-item img {
+    width: 474px;
+    height: 414px;
+    border-radius: 6px;
+}

@@ -1,0 +1,66 @@
+﻿@model CleanArch.Application.DTOs.ProductDTO
+<style type="text/css">
+        .btn-group input {
+            margin-top: 12px;
+            margin-bottom: 10px;
+        }
+        .card-group{
+            margin-bottom: 10px;
+        }
+</style>
+
+<h3>Edit Product</h3>
+
+</ hr>
+<div class="row">
+    <div class="col-md-5">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="card-group">
+                <label asp-for="Name" class="form-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="card-group">
+                <label asp-for="Description" class="form-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div class="card-group">
+                <label asp-for="Image" class="form-label"></label>
+                <input asp-for="Image" class="form-control" />
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+
+            <div class="card-group">
+                <label asp-for="Price" class="form-label"></label>
+                <input asp-for="Price" asp-format="{0:N2}" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+
+            <div class="card-group">
+                <label asp-for="Stock" class="form-label"></label>
+                <input asp-for="Stock" class="form-control" />
+                <span asp-validation-for="Stock" class="text-danger"></span>
+            </div>
+
+            <div class="card-group">
+                <label asp-for="CategoryId" class="form-label"></label>
+                <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+            
+            <div class="btn-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to list</a>
+</div>
+
