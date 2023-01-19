@@ -7,7 +7,7 @@
 .featured-item {
     padding: 10px;
     margin: 5px;
-    background-color: rgba(88, 205, 255, 0.5);
+    background-color: #e4eaef;
     border-radius: 0 12px 0 0;
 }
 
@@ -15,4 +15,10 @@
     width: 474px;
     height: 414px;
     border-radius: 6px;
+}
+
+@media screen and (min-width: 480px){
+    .owl-theme {
+        width: 100%;
+    }
 }
