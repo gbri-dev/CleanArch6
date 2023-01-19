@@ -34,7 +34,9 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Categories" asp-action="Index">Categories</a>
                         </li>
                     </ul>
-                    <partial name="_LoginPartial" />
+                    <ul class="navbar-nav m-lg-auto">
+                        @await Html.PartialAsync("_LoginPartial")
+                    </ul>
                 </div>
             </div>
         </nav>
