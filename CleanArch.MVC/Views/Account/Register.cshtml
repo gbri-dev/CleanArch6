@@ -1,0 +1,34 @@
+﻿@model CleanArch.MVC.ViewModels.RegisterViewModel
+
+<h2>Register User</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-controller="Account" asp-action="Register" method="post" class="form-control-sm">            
+            <div>
+                <label asp-for="Email" class="col-md-2"></label>               
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="container-sm">
+                <label asp-for="Password" class="col-md-2"></label>              
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>               
+            </div>
+              <div>
+                <label asp-for="ConfirmPassword"></label>                
+                <input asp-for="ConfirmPassword" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>            
+            <div class="col-md">
+                <button type="submit" class="btn btn-outline-dark">Register</button>
+                <a asp-controller="Home" asp-action="Index">Return</a>
+            </div>                    
+        </form>
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
