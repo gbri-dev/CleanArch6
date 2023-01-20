@@ -1,5 +1,6 @@
 ﻿using CleanArch.Application.DTOs;
 using CleanArch.Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -66,6 +67,7 @@ namespace CleanArch.MVC.Controllers
             return View(productDTO);
         }
 
+        [Authorize(Roles ="Admin")]
         [HttpGet()]
         public async Task<IActionResult> Delete(int? id)
         {
@@ -88,7 +90,7 @@ namespace CleanArch.MVC.Controllers
         [HttpGet()]
         public async Task<IActionResult> Details(int id)
         {
-            if (id == null) return NotFound();
+           // if (id == null) return NotFound();
             var productDTO = await _productService.GetByIdAsync(id);
 
             if (productDTO == null) return NotFound();

@@ -25,7 +25,7 @@ namespace CleanArch.Infra.IoC
             b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
 
             //Identity Injection
-            services.AddDatabaseDeveloperPageExceptionFilter();
+           // services.AddDatabaseDeveloperPageExceptionFilter();
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
@@ -34,7 +34,8 @@ namespace CleanArch.Infra.IoC
             //Repositories AutoMapper injection
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
-            services.AddScoped<IAuthenticationService, AuthenticationService>();
+            //Identity
+            services.AddScoped<IAuthenticate, AuthenticateService>();
             services.AddScoped<ISeedUserRoleInitial, SeedUserRoleInitial>();
 
             //Services Injection

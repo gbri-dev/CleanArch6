@@ -6,24 +6,25 @@ namespace CleanArch.MVC.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly IAuthenticate _authenticate;
-        public AccountController(IAuthenticate authenticate)
+        private readonly IAuthenticate _authentication;
+        public AccountController(IAuthenticate authentication)
         {
-            _authenticate = authenticate;
+            _authentication = authentication;
         }
 
         [HttpGet]
         public IActionResult Login(string returnUrl)
         {
-            return View(new LoginViewModel()
+            return View(new LoginViewModels()
             {
                 ReturnUrl = returnUrl 
             });
         }
+
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModels model)
         {
-            var result = await _authenticate.AuthenticateAsync(model.Email, model.Password);
+            var result = await _authentication.AuthenticateAsync(model.Email, model.Password);
 
             if (result)
             {
@@ -48,7 +49,7 @@ namespace CleanArch.MVC.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
-            var result = await _authenticate.RegisterUser(model.Email, model.Password);
+            var result = await _authentication.RegisterUser(model.Email, model.Password);
             if (result)
             {
                 return Redirect("/");
@@ -61,7 +62,7 @@ namespace CleanArch.MVC.Controllers
         }
         public async Task<IActionResult> Logout()
         {
-            await _authenticate.Logout();
+            await _authentication.Logout();
             return Redirect("/Account/Login");
         }
     }
