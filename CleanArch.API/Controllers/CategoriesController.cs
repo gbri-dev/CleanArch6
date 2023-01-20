@@ -34,5 +34,42 @@ namespace CleanArch.API.Controllers
             }
             return Ok(category);
         }
+
+        [HttpPost]
+        public async Task<ActionResult> Post([FromBody] CategoryDTO category)
+        {
+            if(category == null)            
+                return BadRequest("Invalid Data");
+
+                await _categoryService.Add(category);
+
+                return new CreatedAtRouteResult("GetCategory", new {id = category.Id},
+                    category);            
+        }
+
+        [HttpPut]
+        public async Task<ActionResult> Put(int id, [FromBody] CategoryDTO category)
+        {
+            if (id != category.Id)
+                return BadRequest();
+
+            if (category == null)
+                return BadRequest();
+
+            await _categoryService.Update(category);
+            return Ok(category);
+        }
+
+        [HttpDelete("{id:int}")]
+        public async Task<ActionResult<CategoryDTO>> Delete (int id)
+        {
+            var category = await _categoryService.GetCategoryById(id);
+            if(category == null)
+            {
+                return NotFound("Categoria não encontrada");
+            }
+            await _categoryService.Remove(id);
+            return Ok(category);
+        } 
     }
 }
