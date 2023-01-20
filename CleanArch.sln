@@ -16,9 +16,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArch.Domain.Tests", "CleanArch.Domain.Tests\CleanArch.Domain.Tests.csproj", "{C0DCBDD9-D0B0-499A-8CE9-75BCD27C28AC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArch.API", "CleanArch.API\CleanArch.API.csproj", "{8769CA3A-12D4-46A1-BBBC-56835BF6CA73}"
-	ProjectSection(ProjectDependencies) = postProject
-		{D0D3B40B-3781-403A-8CB0-0CE70FED84C5} = {D0D3B40B-3781-403A-8CB0-0CE70FED84C5}
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

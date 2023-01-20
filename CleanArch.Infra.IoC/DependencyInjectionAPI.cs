@@ -14,9 +14,9 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace CleanArch.Infra.IoC
 {
-    public static class DependencyInjection
+    public static class DependencyInjectionAPI
     {
-        public static IServiceCollection AddInfrastructure(this IServiceCollection services,
+        public static IServiceCollection AddInfrastructureAPI(this IServiceCollection services,
             IConfiguration configuration)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
@@ -24,18 +24,16 @@ namespace CleanArch.Infra.IoC
             b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
 
             //Identity Injection
-           // services.AddDatabaseDeveloperPageExceptionFilter();
+            // services.AddDatabaseDeveloperPageExceptionFilter();
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
-            services.ConfigureApplicationCookie(options => options.AccessDeniedPath = "/Account/Login");
             //Repositories AutoMapper injection
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
             //Identity
             services.AddScoped<IAuthenticate, AuthenticateService>();
-            services.AddScoped<ISeedUserRoleInitial, SeedUserRoleInitial>();
 
             //Services Injection
             services.AddScoped<IProductService, ProductService>();
@@ -45,9 +43,9 @@ namespace CleanArch.Infra.IoC
             //AutoMapper Injection
             services.AddAutoMapper(typeof(DomainToDTOMappingProfile));
 
-            
+
             //services.IdentityDbContext<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
-              //.AddEntityFrameworkStores<ApplicationDbContext>();
+            //.AddEntityFrameworkStores<ApplicationDbContext>();
 
             //Padrão CQRS
             var myhandlers = AppDomain.CurrentDomain.Load("CleanArch.Application");
