@@ -14,11 +14,10 @@ namespace CleanArch.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddInfrastructureAPI(Configuration);
-            services.AddControllers();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "CleanArch.API", Version = "v1" });
-            });
+            //ativar autenticação e validar o token
+            services.AddInfrastructureJWT(Configuration);
+            services.AddInfrastructureSwagger();
+            services.AddControllers();            
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
