@@ -1,7 +1,8 @@
 ﻿@*@using Microsoft.AspNetCore.Identity
 @inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
+@inject UserManager<IdentityUser> UserManager*@
 
+@*
 <ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
 {
@@ -29,13 +30,14 @@ else
 @if (Context.User.Identity.IsAuthenticated)
 {
     <li>
-        <a class="nav-link text-capitalize" asp-area="" asp-asp-controller="Account" asp-action="Logout"
-        style="color: blue">@Context.User.Identity.Name - Logout</a>
+        <a class="nav-link text-capitalize" asp-area="" asp-controller="Account" asp-action="Logout"
+       style="color: blue">@Context.User.Identity.Name - Logout</a>
     </li>
 }
-else{
+else
+{
     <li>
         <a class="nav-link text-capitalize" asp-area="" asp-controller="Account" asp-action="Login"
-        style="color: blue">Login</a>
+       style="color: blue">Login</a>
     </li>
 }
