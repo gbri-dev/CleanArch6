@@ -10,6 +10,8 @@ namespace CleanArch.Application.Mappings
         {
             CreateMap<Category, CategoryDTO>().ReverseMap();
             CreateMap<Product, ProductDTO>().ReverseMap();
+            CreateMap<IncomeExpense, IncomeExpenseDTO>().ReverseMap();
+            CreateMap<ProcessTypeValue, ProcessTypeValueDTO>().ReverseMap();
         }
 
     }

@@ -1,6 +1,4 @@
-﻿
-
-using CleanArch.Domain.Validation;
+﻿using CleanArch.Domain.Validation;
 
 namespace CleanArch.Domain.Entities
 {

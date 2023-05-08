@@ -6,15 +6,23 @@ using System.Text.Json.Serialization;
 
 namespace CleanArch.Application.DTOs
 {
-    public class ProductDTO
+    public class IncomeExpenseDTO
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage ="The Name is Required")]
+        [Required(ErrorMessage ="The título is Required")]
         [MinLength(3)]
         [MaxLength(100)]
-        [DisplayName("Name")]
-        public string? Name { get;  set; }
+        [DisplayName("Título")]
+        public string? Title { get;  set; }
+
+        [Required(ErrorMessage = "The closing date is Required")]
+        [DisplayName("Closing date")]
+        public DateTime ClosingDate { get; set; }
+
+        [Required(ErrorMessage = "The due date is Required")]
+        [DisplayName("Due Date")]
+        public DateTime DueDate { get; set; }
 
         [Required(ErrorMessage = "The description is Required")]
         [MinLength(5)]
@@ -27,21 +35,14 @@ namespace CleanArch.Application.DTOs
         [DisplayFormat(DataFormatString ="{0:C2}")]
         [DataType(DataType.Currency)]
         [DisplayName("Price")]
-        public decimal Price { get;  set; }
+        public decimal Money { get;  set; }
 
-        [Required(ErrorMessage ="The stock is Required")]
+        [Required(ErrorMessage ="The type is Required")]
         [Range(1, 9999)]
-        [DisplayName("Stock")]
-        public int Stock { get;  set; }
-
-        [MaxLength(250)]
-        [DisplayName("Product Image")]
-        public string? Image { get;  set; }
+        [DisplayName("Type")]
+        public int  TypeValue{ get;  set; }     
 
         [JsonIgnore]
-        public Category? Category { get; set; }
-
-        [DisplayName("Categories")]
-        public int CategoryId { get; set; }
+        public ProcessTypeValue? ProcessType { get; set; }   
     }
 }

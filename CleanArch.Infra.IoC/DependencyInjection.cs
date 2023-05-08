@@ -33,6 +33,8 @@ namespace CleanArch.Infra.IoC
             //Repositories AutoMapper injection
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IProcessTypeValueRepository, ProcessTypeValueRepository>();
+            services.AddScoped<IIncomeExpenseRepository, IncomeExpenseRepository>();
             //Identity
             services.AddScoped<IAuthenticate, AuthenticateService>();
             services.AddScoped<ISeedUserRoleInitial, SeedUserRoleInitial>();
@@ -40,6 +42,8 @@ namespace CleanArch.Infra.IoC
             //Services Injection
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IIncomeExpenseService, IncomeExpenseService>();
+            services.AddScoped<IProcessTypeValueService, ProcessTypeValueService>();
 
 
             //AutoMapper Injection

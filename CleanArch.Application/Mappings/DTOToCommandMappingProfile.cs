@@ -9,7 +9,7 @@ namespace CleanArch.Application.Mappings
         public DTOToCommandMappingProfile()
         {
             CreateMap<ProductDTO, ProductCreateCommand>();
-            CreateMap<ProductDTO, ProductUpdateCommand>();
+            CreateMap<ProductDTO, ProductUpdateCommand>();            
         }
     }
 }

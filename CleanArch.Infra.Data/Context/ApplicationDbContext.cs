@@ -13,6 +13,8 @@ namespace CleanArch.Infra.Data.Context
     //Mapeamento da ORM
     public DbSet<Category> Categories { get; set; }
     public DbSet<Product> Products { get; set; }
+    public DbSet<IncomeExpense> IncomesExpenses { get; set; }
+    public DbSet<ProcessTypeValue> ProcessTypesValues { get; set; }
     protected override void OnModelCreating(ModelBuilder builder)
     {
       base.OnModelCreating(builder);
