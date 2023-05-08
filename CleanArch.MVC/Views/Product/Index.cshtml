@@ -39,7 +39,7 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Price)
                 </th>
-                <th></th>
+                <th class="text-sm-center">Ações</th>
             </tr>
         </thead>
         <tbody>
@@ -55,7 +55,7 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Price)
                     </td>
-                    <td>
+                    <td class="text-md-center">
                         <a asp-action="Edit" asp-route-id="@item.Id" title="Edit" class="btn btn-warning">
                             <span class="fas fa-edit">Edit</span>
                         </a>

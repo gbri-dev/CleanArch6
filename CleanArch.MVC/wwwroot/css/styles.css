@@ -1,24 +1,6 @@
-﻿
-.ImgPro {
-    width: auto;
-    height: 450px;
-}
+﻿*{margin: 0; padding: 0; box-sizing:border-box}
 
-.featured-item {
-    padding: 10px;
-    margin: 5px;
-    background-color: #e4eaef;
-    border-radius: 0 12px 0 0;
-}
-
-.featured-item img {
-    width: 474px;
-    height: 414px;
-    border-radius: 6px;
-}
-
-@media screen and (min-width: 480px){
-    .owl-theme {
-        width: 100%;
-    }
+.Uilink {
+    color: whitesmoke;
+    text-decoration: none;
 }
