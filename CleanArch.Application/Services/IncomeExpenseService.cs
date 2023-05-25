@@ -20,7 +20,7 @@ namespace CleanArch.Application.Services
             _incomeExpenseRepository = incomeExpenseRepository;
         }
 
-        public async Task<IEnumerable<IncomeExpenseDTO>> GetProductsAsync()
+        public async Task<IEnumerable<IncomeExpenseDTO>> GetAllAsync()
         {
             var incomesExpensesEntity = await _incomeExpenseRepository.GetIncomeExpenseAsync();
             return _mapper.Map<IEnumerable<IncomeExpenseDTO>>(incomesExpensesEntity);
